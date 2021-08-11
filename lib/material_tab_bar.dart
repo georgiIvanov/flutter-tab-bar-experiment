@@ -8,11 +8,15 @@ final tabBarProvider = ChangeNotifierProvider<TabBarNotifier>((ref) {
 });
 
 class MaterialTabBarDemo extends ConsumerWidget {
-  const MaterialTabBarDemo({Key? key}) : super(key: key);
+  ButtonStyle style =
+      ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+
+  MaterialTabBarDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final watcher = watch(tabBarProvider);
+
     print(watcher.model.icons.length);
     return MaterialApp(
       home: DefaultTabController(
@@ -26,10 +30,26 @@ class MaterialTabBarDemo extends ConsumerWidget {
             title: const Text('Tabs Demo'),
           ),
           body: TabBarView(
-            children: watcher.model.icons.map((e) => Icon(e)).toList(),
+            children:
+                watcher.model.icons.map((e) => _createChild(e, watch)).toList(),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _createChild(IconData icon, ScopedReader watch) {
+    return Center(
+      child: Column(mainAxisSize: MainAxisSize.min, children: [
+        Icon(icon),
+        ElevatedButton(
+            style: style,
+            onPressed: () {
+              final notifier = watch(tabBarProvider.notifier);
+              notifier.addTab(icon);
+            },
+            child: const Text("Modify tab"))
+      ]),
     );
   }
 }

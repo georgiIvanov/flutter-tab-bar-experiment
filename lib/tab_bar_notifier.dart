@@ -20,4 +20,9 @@ class TabBarNotifier extends ChangeNotifier {
     Icons.dangerous,
     Icons.airplanemode_off
   ]);
+
+  void addTab(IconData icon) {
+    model.icons.add(icon);
+    notifyListeners();
+  }
 }
