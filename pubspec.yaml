@@ -26,7 +26,8 @@ dependencies:
   
   cupertino_icons: ^1.0.3 
   flutter_riverpod: ^0.14.0+3
-  
+  tab_bar:
+    path: ./packages/tab_bar
 
 dev_dependencies:
   flutter_test:
