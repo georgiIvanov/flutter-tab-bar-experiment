@@ -13,12 +13,12 @@ class TabBarModel {
 
 class TabBarNotifier extends ChangeNotifier {
   TabBarModel model = TabBarModel([
-    CupertinoIcons.home,
-    Icons.dangerous,
-    Icons.airplanemode_off,
-    CupertinoIcons.home,
-    Icons.dangerous,
-    Icons.airplanemode_off
+    // CupertinoIcons.home,
+    // Icons.dangerous,
+    // Icons.airplanemode_off,
+    // CupertinoIcons.home,
+    // Icons.dangerous,
+    // Icons.airplanemode_off
   ]);
 
   void addTab(IconData icon) {

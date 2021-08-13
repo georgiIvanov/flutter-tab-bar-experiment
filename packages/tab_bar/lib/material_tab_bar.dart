@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tab_app_upskill/tab_bar_notifier.dart';
+import 'tab_bar_notifier.dart';
 
 final tabBarProvider = ChangeNotifierProvider<TabBarNotifier>((ref) {
   return TabBarNotifier();
 });
 
 class MaterialTabBarDemo extends ConsumerWidget {
-  ButtonStyle style =
+  final ButtonStyle style =
       ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
   MaterialTabBarDemo({Key? key}) : super(key: key);
